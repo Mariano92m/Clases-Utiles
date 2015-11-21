@@ -1,0 +1,29 @@
+Pseudocodigo de Dijkstra SIN cola de prioridad
+
+
+función Dijkstra (Grafo G, nodo_salida s)
+  //Usaremos un vector para guardar las distancias del nodo salida al resto
+  entero distancia[n] 
+  //Inicializamos el vector con distancias iniciales
+  booleano visto[n] 
+  //vector de boleanos para controlar los vértices de los que ya tenemos la distancia mínima
+  para cada w ? V[G] hacer
+     Si (no existe arista entre s y w) entonces
+         distancia[w] = Infinito //puedes marcar la casilla con un -1 por ejemplo
+     Si_no
+         distancia[w] = peso (s, w)
+     fin si 
+  fin para
+  distancia[s] = 0
+  visto[s] = cierto
+  //n es el número de vértices que tiene el Grafo
+  mientras que (no_estén_vistos_todos) hacer 
+     vértice = coger_el_mínimo_del_vector distancia y que no esté visto;
+     visto[vértice] = cierto;
+     para cada w ? sucesores (G, vértice) hacer
+         si distancia[w]>distancia[vértice]+peso (vértice, w) entonces
+            distancia[w] = distancia[vértice]+peso (vértice, w)
+         fin si
+     fin para 
+  fin mientras
+fin función.
